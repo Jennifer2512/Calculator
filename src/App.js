@@ -13,7 +13,7 @@ const btnValues = [
 ];
 
 const toLocaleString = (num) =>
-	String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1 ');
+	String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1');
 
 const removeSpaces = (num) => num.toString().replace(/\s/g, '');
 
@@ -27,7 +27,7 @@ const App = () => {
 	const numClickHandler = (e) => {
 		e.preventDefault();
 		const value = e.target.innerHTML;
-		if (removeSpaces(calc.num).lenght < 16) {
+		if (removeSpaces(calc.num).length < 16) {
 			setCalc({
 				...calc,
 				num:
@@ -78,12 +78,8 @@ const App = () => {
 					calc.num === '0' && calc.sign === '/'
 						? 'Không thể chia cho 0'
 						: toLocaleString(
-								math(
-                  Number(calc.res), 
-                  Number(calc.num), 
-                  calc.sign
-                )
-						),
+								math(Number(calc.res), Number(calc.num), calc.sign)
+							),
 				sign: '',
 				num: 0
 			});
